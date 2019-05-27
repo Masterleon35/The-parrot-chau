@@ -202,7 +202,7 @@ def get_doctorinfo_pushin_mangoDB(emergency_alldoctor_url_notchongfu):
                 pass
 #                 print(str(index)+'重复',end = ',')
             else:
-                result = collection.insert_one(doctor_info)
+                collection.insert_one(doctor_info)
 #                 print(index,end = ',')
 
 def get_doctorinfo_pushin_mangoDB1(x):
@@ -512,7 +512,7 @@ def get_proxy_list(file_path = '/Users/litianhao/Desktop/ip池/ip.txt'):
 		for ip in f:
 			proxy_list.append(ip.strip())
 	return  proxy_list
-
+#%%
 if __name__ == '__main__':
 	#%%
 	######连接数据库
@@ -561,10 +561,10 @@ if __name__ == '__main__':
 		pool.apply_async(get_doctorinfo_pushin_mangoDB2, (2,))
 		pool.apply_async(get_doctorinfo_pushin_mangoDB3, (3,))
 		pool.apply_async(get_doctorinfo_pushin_mangoDB4, (4,))
-		pool.apply_async(get_doctorinfo_pushin_mangoDB5, (1,))
-		pool.apply_async(get_doctorinfo_pushin_mangoDB6, (2,))
-		pool.apply_async(get_doctorinfo_pushin_mangoDB7, (3,))
-		pool.apply_async(get_doctorinfo_pushin_mangoDB8, (4,))
+		pool.apply_async(get_doctorinfo_pushin_mangoDB5, (5,))
+		pool.apply_async(get_doctorinfo_pushin_mangoDB6, (6,))
+		pool.apply_async(get_doctorinfo_pushin_mangoDB7, (7,))
+		pool.apply_async(get_doctorinfo_pushin_mangoDB8, (8,))
 		pool.close()
 		pool.join()
 		# end = time.time()
