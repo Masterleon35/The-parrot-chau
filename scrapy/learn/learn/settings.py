@@ -70,6 +70,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
    # 'learn.pipelines.LearnPipeline': 300,
    'learn.pipelines.MongoPipeline':1,
+   'learn.pipelines.MongoPipeline1':2,
 	# 'scrapy.pipelines.images.ImagesPipeline': 1,
 }
 
@@ -100,9 +101,15 @@ project_dir = os.path.abspath(os.path.dirname(__file__))
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #mongo数据库设置
+#好大夫
+# MONGO_URI = 'localhost'
+# MONGO_DB = "spider_info_haodafu"
+# MONGO_COL = "doctor_plus"
+#药智网
 MONGO_URI = 'localhost'
-MONGO_DB = "spider_info_haodafu"
-MONGO_COL = "doctor_plus"
+MONGO_DB = "spider_info_yaozhi"
+MONGO_COL = "hospital"
+MONGO_COL_CLN = "clinic"
 
 
 #ip代理和用户代理设置
@@ -115,3 +122,9 @@ RETRY_ENABLED = True
 RETRY_TIMES = 2
 RETRY_HTTP_CODES = [500, 503, 504, 400, 408, 403, 429]
 RETRY_PRIORITY_ADJUST = -1
+
+#日志设定
+LOG_ENABLED = True
+LOG_ENCODING = 'utf-8'
+LOG_FILE = 'log/mySpider.log'
+LOG_LEVEL = 'WARNING'
