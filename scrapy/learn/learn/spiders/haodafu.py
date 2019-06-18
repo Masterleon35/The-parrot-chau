@@ -121,7 +121,10 @@ class HaodafuSpider(scrapy.Spider):
         information['BasicInfo'] = {
             'Name':name,
             'ProfessionalTitleAndRank':title,
-            'haodafuWB':{
+            'BeGoodAt':be_good_at,
+            }
+
+        information['SocialMeida']={'haodafuWB':{
                 'url':response.url,
                 'score':score,
                 'DegreeSatifactionCuraiveEffect': satisfaction_number_from_patient[0],
@@ -129,15 +132,14 @@ class HaodafuSpider(scrapy.Spider):
                 'addupHlepPatientNumber': satisfaction_number_from_patient[1],
                 'nearlyHlepPatientNumber' : satisfaction_number_from_patient[3],
                 'patientQuestionNumber' : question_number,
-                'doctorAnsweredNumber': reply_number
-            },
-            'TODO':introduction,
-            'BeGoodAt':be_good_at,
-            'Hospital' : hospital,
-            'Department' : department,
-            'Unique': boolean,
-            'Response' : response.body_as_unicode()
-        }
+                'doctorAnsweredNumber': reply_number}
+            }
+        information['TODO']=introduction
+        information['Hospital'] = hospital
+        information['Department'] = department
+        information['Unique'] = boolean
+        information['Response'] = response.body_as_unicode()
+
         # information["SocialMeida"] = {}
         # information["SocialMeida"]['haodafuWB'] = {}
         # information['BasicInfo']['Name'] = name
