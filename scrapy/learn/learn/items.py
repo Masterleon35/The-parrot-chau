@@ -24,6 +24,22 @@ class HaodafuItem(scrapy.Item):
     Reponse = scrapy.Field()
     Unique = scrapy.Field()
     # BasicInfo = scrapy.Field()
-
-
     pass
+
+class YaoZhiHospitalItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    Detail_info = scrapy.Field()
+    Search_name = scrapy.Field()
+    Response = scrapy.Field()
+    Page_URL = scrapy.Field()
+    Clinic_URL = scrapy.Field()
+
+class YaoZhiClinicItem(scrapy.Item):
+    Detail_info = scrapy.Field()
+    Page_URL = scrapy.Field()
+    Search_name = scrapy.Field()
+
+
+
+    # BasicInfo = scrapy.Field()
