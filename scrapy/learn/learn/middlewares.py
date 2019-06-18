@@ -14,6 +14,9 @@ from scrapy.downloadermiddlewares.retry import RetryMiddleware
 
 class MyRetryMiddleware(RetryMiddleware):
     def process_response(self, request, response, spider):
+        if not response.body_as_unicode():
+            reason = 'body为空'
+            return self._retry(request, reason, spider) or response
         if request.meta.get('dont_retry', False):
             return response
         if response.status in self.retry_http_codes:
@@ -63,7 +66,7 @@ class RandomUserAgentMiddleware(UserAgentMiddleware):
             "user": proxyUser,
             "pass": proxyPass,
         }
-        request.meta["proxy"] = proxyMeta
+        # request.meta["proxy"] = proxyMeta
 
 class LearnSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
